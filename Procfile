@@ -1,1 +1,1 @@
-web: gunicorn clabby-classifier:app
+web: gunicorn app:app
