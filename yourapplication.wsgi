@@ -1,1 +1,1 @@
-from clabby-classifier import app as application
+from app import app as application
