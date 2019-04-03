@@ -4,6 +4,7 @@ from io import BytesIO
 from fastai import *
 from fastai.vision import *
 from flask import Flask, jsonify, request, render_template
+from werkzeug.contrib.fixers import ProxyFix
 from werkzeug.exceptions import BadRequest
 from hints import fact_finder
 
@@ -49,5 +50,6 @@ def eval_image():
         'hint': hint
     })
 
+app.wsgi_app = ProxyFix(app.wsgi_app)
 if __name__ == "__main__":
     app.run(host='0.0.0.0', threaded=False)
